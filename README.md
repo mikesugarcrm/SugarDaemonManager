@@ -7,7 +7,7 @@ You can pass arguments to the processes, and assign callback functions (with opt
 a "final callback" to run when all child processes are complete.
 
 
-##Requirements
+## Requirements
 - Sugar 7.9 or later
 - PHP 7 or later.
 - *nix OS (Windows is not supported).
@@ -16,7 +16,7 @@ a "final callback" to run when all child processes are complete.
 automatically.
 
 
-##Installing
+## Installing
 **tar/zip**
 
 You can tar/zip up the contents of the custom/ directory and untar/unzip them in your instance. 
@@ -31,7 +31,7 @@ repo's base directory:
 
 Then install the package as you would with any other package.
 
-##Configuring
+## Configuring
 You set the configuration values for the SugarDaemonManager like any other sugar config value, in config_override.php.
 
 Since you may have more than one script that will use the SugarDaemonManager, each instance of the SugarDaemonManager 
@@ -49,7 +49,7 @@ $sugar_config['sugar_daemon']['example']['process_check_delay'] = 5;
 $sugar_config['sugar_daemon']['example']['time_limit'] = 3600;
 ```
 
-##Using
+## Using
 First, create an instance of the SugarDaemonManager with a unique name.
 
 `$sdm = new \Sugarcrm\Sugarcrm\custom\SugarDaemonManager\SugarDaemonManager('demo');`
@@ -87,7 +87,7 @@ until the last command is complete, or the time limit is exceeded.
 **NOTE:** If the time limit is exceeded, running child processes will run to completion but no further processes 
 will be started and callbacks will not be run.
 
-###So what actually happens?
+### So what actually happens?
 Each command and all args will be escaped and then run through exec(). The commands will look something like this 
 when executed:
 
@@ -96,7 +96,7 @@ when executed:
 This creates a detached php thread that runs independently of the process that called it and any other PHP processes.
 
 
-##Runing the demo
+## Runing the demo
 If you want to run the demo, just copy demo.php and sleeper.php from this repo into the root directory of 
 your sugar instance. Then just run demo.php:
 
@@ -108,7 +108,7 @@ which iteration it's on and how long it slept. Tail the sleeper_log to see how a
 simultaneously By default, the max_simultaneous_processes is set to 3 but you 
 can change that to see how the behavior changes. 
 
-##Questions, Comments, Bugs
+## Questions, Comments, Bugs
 Email me - mandersen@sugarcrm.com
 
 
